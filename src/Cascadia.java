@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Cascadia {
     private final int numberPlayers = 2;
     private List<Player> players;
-    private List<> availableHabitatTiles;
-    private List<> availableWildlifeTokens;
+    private List<HabitatTile> availableHabitatTiles;
+    private List<WildlifeToken> availableWildlifeTokens;
 
 
     public static void main(String[] a) {
