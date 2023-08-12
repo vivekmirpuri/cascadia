@@ -6,11 +6,14 @@ public class Player {
 
     private String name;
     private char[][] playerBoard = new char[ROWS][COLS];
-    
 
 
 
 
+
+    public void setName(String name){
+        this.name = name;
+    }
 
 
 
