@@ -37,6 +37,8 @@ public class Cascadia {
             Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as so
         }
         getOrder();
+        players.get(1).setPlayerBoard();
+        players.get(1).getPlayerBoard();
 
 
 
