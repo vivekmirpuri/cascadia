@@ -34,12 +34,9 @@ public class Cascadia {
             Player p = new Player();
             p.setName(name);
             players.add(p);
-            Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as so
+            Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as shuffled
         }
         getOrder();
-        players.get(1).setPlayerBoard();
-        players.get(1).getPlayerBoard();
-
 
 
     }

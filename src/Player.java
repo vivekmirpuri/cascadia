@@ -16,19 +16,19 @@ public class Player {
     }
     public void getPlayerBoard() {
         for (int j = 0; j < COLS +2; j++){
-            System.out.print('*');
+            System.out.print('≈');
         }
         System.out.println();
         for (int i = 0; i < ROWS ; i++){
-            System.out.print('*');
+            System.out.print('»');
             for (int j = 0; j < COLS ; j++){
                 System.out.print(playerBoard[i][j]);
             }
-            System.out.print('*');
+            System.out.print('«');
             System.out.println();
         }
         for (int j = 0; j < COLS +2 ; j++){
-            System.out.print('*');
+            System.out.print('≈');
         }
     }
 
