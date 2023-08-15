@@ -5,6 +5,8 @@ public class Player {
     public final static int COLS = 210;
 
     private String name;
+
+    private int playerNumberTurns = 0;
     private char[][] playerBoard = new char[ROWS][COLS];
 
     public void setPlayerBoard() {
@@ -39,6 +41,17 @@ public class Player {
 
     public Object getName() {
         return this.name;
+    }
+
+    public void addTurn(){
+        if (playerNumberTurns <= 20){
+            playerNumberTurns++;
+        }else
+            throw new IllegalArgumentException("player has already played 20 turns");
+
+    }
+    public int getTurn(){
+        return this.playerNumberTurns;
     }
 
 
