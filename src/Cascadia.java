@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Cascadia {
+public class Cascadia implements tileMaker {
     private final int numberPlayers = 2;
     private List<Player> players;
     private List<HabitatTile> availableHabitatTiles;
@@ -9,7 +9,8 @@ public class Cascadia {
 
     public static void main(String[] a) {
         Cascadia trial = new Cascadia();
-        trial.startGame();
+       trial.startGame();
+
     }
 
     public Cascadia() {
