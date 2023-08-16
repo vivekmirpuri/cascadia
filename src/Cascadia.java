@@ -23,7 +23,9 @@ public class Cascadia implements tileMaker {
     }
     public void startGame() {
         Scanner scanner = new Scanner(System.in);
+        emptyTile(3,3, 1);
         System.out.println("This game is for two players");
+
 
         for (int i = 0; i < this.numberPlayers; i++) {
             System.out.printf("Enter player name for player %d%n", i + 1);

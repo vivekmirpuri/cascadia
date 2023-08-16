@@ -1,51 +1,47 @@
 public interface tileMaker {
-    final int rows = 6;
-    final int columns =13;
+     int rows = 6;
+     int columns =13;
 
-    public default void emptyTile(int offset, int frequency) {
 
-        for (int n= 1 ; n <= rows; n++){
-            for (int i = 0 ; i < columns; i ++){
+     default void emptyTile(int offset, int frequency, int row) {
+            int n = row;
 
-                for (int j = 0 ; j < offset; j ++){
+            for (int i = 0; i < columns; i++) {
+                for (int j = 0; j < offset; j++) {
                     System.out.print(" ");
-
                 }
-                for (int k = 0 ; k < (columns- frequency); k ++){
-                    if (k%frequency==0 || k == 0){
+                for (int k = 0; k < (columns - (2 * offset)); k++) {
+                    if (k % frequency == 0 || k == 0) {
                         System.out.print("*");
-                    } else{
+                    } else {
                         System.out.print(" ");
                     }
                 }
             }
-            switch (n){
+            switch (n) {
                 case 1:
-                    offset -= 2;
-                    frequency = 11; //number of cols minus offset in both sides
                     System.out.println();
+                    n++;
+                    emptyTile(1,11, n);
                 case 2:
-                    offset = 0;
-                    frequency = columns;
                     System.out.println();
+                    n++;
+                    emptyTile(0,13, n);
                 case 3:
                     System.out.println();
+                    n++;
+                    emptyTile(0,13, n);
                 case 4:
-                    offset -= 2;
-                    frequency = 11; //number of cols minus offset in both sides
                     System.out.println();
+                    n++;
+                    emptyTile(1,11, n);
                 case 5:
-                    offset = 3;
-                    frequency = 3;
+                    System.out.println();
+                    n++;
+                    emptyTile(3,3, n);
+                case 6:
+                    System.out.println("done");
             }
-
-        }
-
-
-
-    }
-
-    public default void populateTile(int i, int j){
 
     }
 
@@ -53,3 +49,4 @@ public interface tileMaker {
 
 
 }
+
