@@ -1,6 +1,8 @@
 import java.util.*;
 
-public class Cascadia implements tileMaker {
+public class Cascadia {
+
+
     private final int numberPlayers = 2;
     private List<Player> players;
     private List<HabitatTile> availableHabitatTiles;
@@ -15,14 +17,12 @@ public class Cascadia implements tileMaker {
 
     public Cascadia() {
         Random random = new Random();
-
         this.players = new ArrayList<>();
         this.availableHabitatTiles = new ArrayList<>();
         this.availableWildlifeTokens = new ArrayList<>();
 
     }
     public void startGame() {
-        tile();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("This game is for two players");
@@ -41,6 +41,8 @@ public class Cascadia implements tileMaker {
             Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as shuffled
         }
         getOrder();
+        builder tileMaker = new builder(players);
+        tileMaker.tile();
 
 
     }
