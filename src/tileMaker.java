@@ -5,7 +5,7 @@ public interface tileMaker {
 
      default void emptyTile(int offset, int frequency, int row) {
             int n = row;
-            if (n < 7){
+            if (n <= rows){
 
                 for (int j = 0; j < offset; j++) {
                     System.out.print(" ");
