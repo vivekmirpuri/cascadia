@@ -34,11 +34,13 @@ public class Player {
         }
     }
 
+    public  char[][] retrieveBoard() {
+        return this.playerBoard;
+    }
+
     public void setName(String name){
         this.name = name;
     }
-
-
     public Object getName() {
         return this.name;
     }
