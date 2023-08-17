@@ -7,12 +7,15 @@ public class Player {
     private int playerNumberTurns = 0;
     private char[][] playerBoard = new char[ROWS][COLS];
 
-    public void setPlayerBoard() {
+    public void populatePlayerBoard() {
         for (int i = 0; i < ROWS ; i++){
             for (int j = 0; j < COLS ; j++){
                 playerBoard[i][j] = '·';
             }
         }
+    }
+    public void changeCharsBoard(int i, int j, char charToChange) {
+        playerBoard[i][j] = charToChange;
     }
     public void getPlayerBoard() {
         for (int j = 0; j < COLS +2; j++){

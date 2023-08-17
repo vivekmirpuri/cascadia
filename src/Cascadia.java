@@ -42,6 +42,7 @@ public class Cascadia {
         }
         getOrder();
         builder tileMaker = new builder(players);
+        tileMaker.setIndex(0);
         tileMaker.tile();
 
 
