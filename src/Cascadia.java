@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Cascadia {
 
-
+    public final static int ROWS = 60;
+    public final static int COLS = 180;
     private final int numberPlayers = 2;
     private List<Player> players;
     private List<HabitatTile> availableHabitatTiles;
@@ -44,9 +45,11 @@ public class Cascadia {
 
         }
         getOrder();
-        builder tileMaker = new builder(players);
+        Builder tileMaker = new Builder(players);
         tileMaker.setIndex(0);
-        tileMaker.tile();
+        for (int i = 0; i < 1000;i++) {
+            tileMaker.tile();
+        }
         players.get(0).getPlayerBoard();
 
 

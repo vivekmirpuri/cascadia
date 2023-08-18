@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class Player {
-    public final static int ROWS = 60;
-    public final static int COLS = 210;
+    public final static int ROWS = 180;
+    public final static int COLS = 360;
     private String name;
     private int playerNumberTurns = 0;
     private char[][] playerBoard = new char[ROWS][COLS];
