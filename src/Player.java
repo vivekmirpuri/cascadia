@@ -39,6 +39,10 @@ public class Player {
         return this.playerBoard;
     }
 
+   /* public void setPlayerBoard(char[][] playerBoard) {
+        this.playerBoard = playerBoard;
+    }*/
+
     public void setName(String name){
         this.name = name;
     }

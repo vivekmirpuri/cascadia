@@ -39,11 +39,16 @@ public class Cascadia {
             p.setName(name);
             players.add(p);
             Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as shuffled
+
+            players.get(i).populatePlayerBoard();
+
         }
         getOrder();
         builder tileMaker = new builder(players);
         tileMaker.setIndex(0);
         tileMaker.tile();
+        players.get(0).getPlayerBoard();
+
 
 
     }
