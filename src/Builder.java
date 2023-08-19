@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Builder {
-    public final static int TOTALROWS = 60;
+    public final static int YAXIS = 60;
     public final static int XAXIS = 180;
     List<Player> playerList;
     private int pointerToVerticalChar = 0;
@@ -57,13 +57,14 @@ public class Builder {
             setJ(pointerToVerticalChar);
             increaseI();
         }
-        increaseVerticalPointer();
-        setJ(pointerToVerticalChar);
-        if (pointerToVerticalChar == XAXIS){
+
+        if (pointerToVerticalChar == (XAXIS-columns)){
             increaseHorizontalPointer();
         }else {
             setI(pointerToHorizontalChar);
         }
+        increaseVerticalPointer();
+        setJ(pointerToVerticalChar);
 
     }
 
@@ -93,8 +94,8 @@ public class Builder {
         return this.j;
     }
 
-    private int getpointerToHorizontalChar() {
-        return pointerToVerticalChar;
+    private int getPointerToHorizontalChar() {
+        return pointerToHorizontalChar;
     }
 
     private void increaseVerticalPointer(){
@@ -103,7 +104,7 @@ public class Builder {
         setPointerToVerticalChar(temp);
     }
     private void increaseHorizontalPointer(){
-        int temp = getpointerToHorizontalChar();
+        int temp = getPointerToHorizontalChar();
         temp += rows; //this way we make sure the pointer can go by every coordinate and print hexagons where needed
         setPointerToHorizontalChar(temp);
     }

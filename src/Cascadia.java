@@ -47,7 +47,7 @@ public class Cascadia {
         getOrder();
         Builder tileMaker = new Builder(players);
         tileMaker.setIndex(0);
-        for (int i = 0; i < 1000;i++) {
+        for (int i = 0; i < 100;i++) {
             tileMaker.tile();
         }
         players.get(0).getPlayerBoard();
