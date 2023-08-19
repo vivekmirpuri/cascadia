@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class Builder {
@@ -6,7 +7,7 @@ public class Builder {
     private int pointerToVerticalChar = 0;
     private int pointerToHorizontalChar = 0;
 
-    public int[] pairs = new int[100]; //used to track coordinates for the unfilled hexagons
+    LinkedList numbers = new LinkedList<>();
     int indexOfPlayer;
     private final int  columns =18;
     private final int rows = 6;
@@ -32,15 +33,7 @@ public class Builder {
         }
 
     }
-    public void fillTileAt(int offset){
-        for (int j = 0; j < offset; j++) {
-            playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),' ');
-            increaseJ();
-        }
-        for (int k = 0; k < columns - 2*offset; k++) {
-            playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),'*');
-            increaseJ();
-        }
+    public void populateTile(HabitatTile tile, ){
 
 
     }
@@ -130,6 +123,8 @@ public class Builder {
         setPointerToHorizontalChar(0);
         setPointerToVerticalChar(0);
     }
+
+
 
 
 }
