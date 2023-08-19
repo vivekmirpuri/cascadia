@@ -17,7 +17,6 @@ public class Cascadia {
     }
 
     public Cascadia() {
-        Random random = new Random();
         this.players = new ArrayList<>();
         this.availableHabitatTiles = new ArrayList<>();
         this.availableWildlifeTokens = new ArrayList<>();
@@ -39,11 +38,9 @@ public class Cascadia {
             Player p = new Player();
             p.setName(name);
             players.add(p);
-            Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as shuffled
-
             players.get(i).populatePlayerBoard();
-
         }
+        Collections.shuffle(players); // this is to ensure the order is randomized, the turn is assigned as shuffled
         getOrder();
         Builder tileMaker = new Builder(players);
         for (int x =0; x < players.size(); x++){
@@ -53,10 +50,7 @@ public class Cascadia {
             }
             System.out.println("This is " + players.get(x).getName() + "'s board");
             players.get(x).getPlayerBoard();
-            System.out.println();
         }
-
-
 
 
     }

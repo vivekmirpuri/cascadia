@@ -33,6 +33,11 @@ public class Player {
         for (int j = 0; j < COLS +2 ; j++){
             System.out.print('≈');
         }
+
+        for (int j = 0; j < 5; j++){ // this is just aesthetics for the plotting of every turn
+            System.out.println();
+        }
+
     }
 
     public  char[][] retrieveBoard() {
