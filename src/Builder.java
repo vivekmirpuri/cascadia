@@ -1,7 +1,6 @@
 import java.util.List;
 
 public class Builder {
-    public final static int YAXIS = 60;
     public final static int XAXIS = 180;
     List<Player> playerList;
     private int pointerToVerticalChar = 0;
@@ -33,15 +32,16 @@ public class Builder {
         }
 
     }
-    public void fillTileAt(int offset, int frequency, int playerIndex){
+    public void fillTileAt(int offset){
         for (int j = 0; j < offset; j++) {
-            playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),' ');
+            playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),' ');
             increaseJ();
         }
         for (int k = 0; k < columns - 2*offset; k++) {
-            playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),'*');
+            playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),'*');
             increaseJ();
         }
+
 
     }
 
@@ -127,6 +127,10 @@ public class Builder {
         this.indexOfPlayer = index;
         setI(0);// when indexOfPlayer is changed values for playerBoardManipulationChange
         setJ(0);
+        setPointerToHorizontalChar(0);
+        setPointerToVerticalChar(0);
     }
+
+
 }
 
