@@ -10,7 +10,7 @@ public class Player {
     public void populatePlayerBoard() {
         for (int i = 0; i < ROWS ; i++){
             for (int j = 0; j < COLS ; j++){
-                playerBoard[i][j] = '·';
+                playerBoard[i][j] = ' ';
             }
         }
     }

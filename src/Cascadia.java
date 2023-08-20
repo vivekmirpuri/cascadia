@@ -45,7 +45,7 @@ public class Cascadia {
         Builder tileMaker = new Builder(players);
         for (int x =0; x < players.size(); x++){
             tileMaker.setIndex(x);
-            for (int i = 0; i < (ROWS/6 * COLS/18); i++) {   //this is to print the tiles empty, as many times as the board
+            for (int i = 0; i < (95); i++) {   //this is to print the tiles empty, as many times as the board
                 tileMaker.tile();
             }
             System.out.println("This is " + players.get(x).getName() + "'s board");

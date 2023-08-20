@@ -6,7 +6,7 @@ public class Builder {
     List<Player> playerList;
     private int pointerToVerticalChar = 0;
     private int pointerToHorizontalChar = 0;
-
+    private char charToChange = '*';
     LinkedList numbers = new LinkedList<>();
     int indexOfPlayer;
     private final int  columns =18;
@@ -24,8 +24,7 @@ public class Builder {
         }
 
         for (int k = 0; k < columns - 2*offset; k++) {
-                if (k % frequency == 0 || k == 0) {
-                    playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),'*');
+                if (k % frequency == 0) {playerList.get(playerIndex).changeCharsBoard(getI(),getJ(), this.charToChange);
                 } else {
                     playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),' ');
                 }
@@ -33,15 +32,13 @@ public class Builder {
         }
 
     }
-    public void populateTile(HabitatTile tile, ){
 
-
-    }
 
     public void tile() {
         for (int n = 0; n < rows; n++) {
             if (n==0||n == 5){
-                emptyTile(3, 5, getIndex());}
+                emptyTile(3, 5, getIndex());
+            }
             else if (n==1||n == 4) {
                 emptyTile(1, 14, getIndex());
             } else{
@@ -51,16 +48,34 @@ public class Builder {
             increaseI();
         }
 
-        if (pointerToVerticalChar == (XAXIS-columns)){
-            increaseHorizontalPointer();
-        }else {
-            setI(pointerToHorizontalChar);
+            if (getPointerToVerticalChar() == (XAXIS-columns) ){
+                increaseHorizontalPointer();
+            } else {
+                setI(pointerToHorizontalChar);
+            }
+
+            increaseVerticalPointer();
+            setJ(pointerToVerticalChar);
+
+        if (((getPointerToHorizontalChar()/6) % 2)!= 0){
+                if (getPointerToVerticalChar()==0){
+                    pointerToVerticalChar += 9;
+                }
+                if (getPointerToVerticalChar() == (XAXIS - 9)){
+                    setPointerToVerticalChar(0);
+                    increaseHorizontalPointer();
+                    setI(pointerToHorizontalChar);
+                }
+            setJ(pointerToVerticalChar);
+
+
         }
-        increaseVerticalPointer();
-        setJ(pointerToVerticalChar);
 
     }
 
+    public void changing(char charToChange){
+        this.charToChange = charToChange;
+    }
 
     private void setI(int x){
         this.i= x;
