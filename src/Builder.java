@@ -8,6 +8,7 @@ public class Builder {
     private int pointerToHorizontalChar = 0;
     private char charToChange = '*';
     LinkedList numbers = new LinkedList<>();
+    boolean [] toPlaceTiles = new boolean[95]; //number of possible hexagons per match
     int indexOfPlayer;
     private final int  columns =18;
     private final int rows = 6;
@@ -67,10 +68,7 @@ public class Builder {
                     setI(pointerToHorizontalChar);
                 }
             setJ(pointerToVerticalChar);
-
-
         }
-
     }
 
     public void changing(char charToChange){
@@ -138,7 +136,6 @@ public class Builder {
         setPointerToHorizontalChar(0);
         setPointerToVerticalChar(0);
     }
-
 
 
 
