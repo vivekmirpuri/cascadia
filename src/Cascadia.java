@@ -47,6 +47,7 @@ public class Cascadia {
             tileMaker.setIndex(x);
             for (int i = 0; i < (95); i++) {   //this is to print the tiles empty, as many times as the board
                 tileMaker.tile();
+                System.out.println(tileMaker.giveCoordinates());
             }
             System.out.println("This is " + players.get(x).getName() + "'s board");
             players.get(x).getPlayerBoard();

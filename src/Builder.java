@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,8 +8,7 @@ public class Builder {
     private int pointerToVerticalChar = 0;
     private int pointerToHorizontalChar = 0;
     private char charToChange = '*';
-    LinkedList numbers = new LinkedList<>();
-    boolean [] toPlaceTiles = new boolean[95]; //number of possible hexagons per match
+    boolean[] toPlaceTiles = new boolean[95]; //number of possible hexagons per match
     int indexOfPlayer;
     private final int  columns =18;
     private final int rows = 6;
@@ -18,18 +18,36 @@ public class Builder {
     public Builder(List<Player> players){
         this.playerList = players;
     }
-    public void emptyTile(int offset, int frequency, int playerIndex) {
+    public void emptyTile(int offset, int frequency, int playerIndex, int n) {
         for (int j = 0; j < offset; j++) {
                 playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),' ');
                 increaseJ();
         }
 
         for (int k = 0; k < columns - 2*offset; k++) {
-                if (k % frequency == 0) {playerList.get(playerIndex).changeCharsBoard(getI(),getJ(), this.charToChange);
+            if (n!=3){
+                    if (k % frequency == 0) {
+                        playerList.get(playerIndex).changeCharsBoard(getI(), getJ(), charToChange);
+                    } else {
+                        playerList.get(playerIndex).changeCharsBoard(getI(), getJ(), ' ');
+                    }
+                    increaseJ();
+            }else {
+                if (k % frequency == 0) {
+                    playerList.get(playerIndex).changeCharsBoard(getI(), getJ(), this.charToChange);
                 } else {
-                    playerList.get(playerIndex).changeCharsBoard(getI(),getJ(),' ');
+                    if (k==5){
+                        for (int i = 0; i<5;i++){
+                            playerList.get(playerIndex).changeCharsBoard(getI(), getJ(), giveCoordinates().charAt(i));
+                            increaseJ();
+                            k++;
+                        }
+                    }else {
+                        playerList.get(playerIndex).changeCharsBoard(getI(), getJ(), ' ');
+                    }
                 }
                 increaseJ();
+            }
         }
 
     }
@@ -38,12 +56,12 @@ public class Builder {
     public void tile() {
         for (int n = 0; n < rows; n++) {
             if (n==0||n == 5){
-                emptyTile(3, 5, getIndex());
+                emptyTile(3, 5, getIndex(),n);
             }
             else if (n==1||n == 4) {
-                emptyTile(1, 14, getIndex());
+                emptyTile(1, 14, getIndex(),n);
             } else{
-                emptyTile(0, 16, getIndex());
+                emptyTile(0, 16, getIndex(),n);
             }
             setJ(pointerToVerticalChar);
             increaseI();
@@ -103,6 +121,10 @@ public class Builder {
     private int getPointerToHorizontalChar() {
         return pointerToHorizontalChar;
     }
+    private int getPointerToVerticalChar() {
+        return pointerToVerticalChar;
+    }
+
 
     private void increaseVerticalPointer(){
         int temp = getPointerToVerticalChar();
@@ -113,10 +135,6 @@ public class Builder {
         int temp = getPointerToHorizontalChar();
         temp += rows; //this way we make sure the pointer can go by every coordinate and print hexagons where needed
         setPointerToHorizontalChar(temp);
-    }
-
-    private int getPointerToVerticalChar() {
-        return pointerToVerticalChar;
     }
 
     private void increaseI(){
@@ -135,7 +153,20 @@ public class Builder {
         setJ(0);
         setPointerToHorizontalChar(0);
         setPointerToVerticalChar(0);
+        Arrays.fill(toPlaceTiles, false);
     }
+
+    /*public boolean shouldPrint(int index){
+
+    }*/
+
+    public String giveCoordinates(){
+        int vertical = getPointerToVerticalChar()/columns ;
+        int horizontal = getPointerToHorizontalChar()/rows;
+        return "(" + horizontal + "," + vertical + ")";
+    }
+
+
 
 
 
