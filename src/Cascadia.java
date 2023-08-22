@@ -7,6 +7,10 @@ public class Cascadia {
     private final int numberPlayers = 2;
     private List<Player> players;
     private List<HabitatTile> availableHabitatTiles;
+    private List<WildlifeToken> availableWildlifeTokens;
+
+
+
 
 
     public static void main(String[] a) {
@@ -68,6 +72,12 @@ public class Cascadia {
             availableHabitatTiles.add(new HabitatTile());
         }
 
+    }
+    public void setTokens(){
+        for (int i=0; i<100; i++){
+            availableWildlifeTokens.add(new WildlifeToken());
+            System.out.println(availableWildlifeTokens.get(i).);
+        }
     }
 
     public List<Player> getPlayers() {

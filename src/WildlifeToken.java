@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Random;
 
 public class WildlifeToken {
@@ -15,5 +16,8 @@ public class WildlifeToken {
 
     public WildlifeType getTokenToDisplay() {
         return tokenToDisplay;
+    }
+    public char getFirstChar(){
+        return Array.getChar(tokenToDisplay,1);
     }
 }

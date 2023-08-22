@@ -21,8 +21,6 @@ public class Environment {
         this.tileToAdd = tileToAdd;
         this.tokenToAdd = tokenToAdd;
         fillTile();
-
-
     }
 
     public void fillTile(){
