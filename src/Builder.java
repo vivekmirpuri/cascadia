@@ -89,21 +89,13 @@ public class Builder {
         }
     }
 
-    public void fillTile(Environment environment) {
+    public void getFilledTile(Environment environment) {
         for (int i = 0; i < rows;i++){
             for (int j = 0; j < columns; j++) {
                 playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),environment.environmentTile[i][j]);
                 increaseJ();
             }
         }
-    }
-
-
-
-
-
-    public void changing(char charToChange){
-        this.charToChange = charToChange;
     }
 
     private void setI(int x){
@@ -115,7 +107,6 @@ public class Builder {
     private void setPointerToVerticalChar(int pointerToVerticalChar) {
         this.pointerToVerticalChar = pointerToVerticalChar%XAXIS;
     }
-
 
     private void setPointerToHorizontalChar(int pointerToHorizontalChar) {
         this.pointerToHorizontalChar = pointerToHorizontalChar;
@@ -137,7 +128,6 @@ public class Builder {
     private int getPointerToVerticalChar() {
         return pointerToVerticalChar;
     }
-
 
     private void increaseVerticalPointer(){
         int temp = getPointerToVerticalChar();
@@ -169,19 +159,14 @@ public class Builder {
         Arrays.fill(toPlaceTiles, false);
     }
 
-    /*public boolean shouldPrint(int index){
-
-    }*/
-
     public String giveCoordinates(){
         int vertical = getPointerToVerticalChar()/columns ;
         int horizontal = getPointerToHorizontalChar()/rows;
         return "(" + horizontal + "," + vertical + ")";
     }
+     /*public boolean shouldPrint(int index){
 
+    }*/
 
-    public void setHabitatTile(HabitatTile habitat) {
-
-    }
 }
 
