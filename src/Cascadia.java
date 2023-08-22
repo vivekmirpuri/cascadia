@@ -6,7 +6,7 @@ public class Cascadia {
     public final static int COLS = 180;
     private final int numberPlayers = 2;
     private List<Player> players;
-    private List<Environment> availableEnvironments;
+    private List<HabitatTile> availableHabitatTiles;
 
 
     public static void main(String[] a) {
@@ -17,7 +17,7 @@ public class Cascadia {
 
     public Cascadia() {
         this.players = new ArrayList<>();
-        this.availableEnvironments = new ArrayList<>();
+        this.availableHabitatTiles = new ArrayList<>();
 
     }
     public void startGame() {
@@ -67,7 +67,7 @@ public class Cascadia {
 
     public void setTiles(){
         for (int i=0; i<43; i++){
-            availableEnvironments.add(new Environment());
+            availableHabitatTiles.add(new HabitatTile());
         }
     }
 

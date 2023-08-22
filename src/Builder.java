@@ -168,7 +168,7 @@ public class Builder {
     }
 
 
-    public void setEnvironment(Environment habitat) {
+    public void setHabitatTile(HabitatTile habitat) {
 
     }
 }

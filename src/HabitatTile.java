@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Environment {
+public class HabitatTile {
     HabitatType habitatType1;
     HabitatType habitatType2;
 
@@ -15,7 +15,7 @@ public class Environment {
     int numberOfWildlife = 1 + (int)(Math.random() * ((3 - 1) + 1));
 
 
-    Environment(){
+    HabitatTile(){
       if (numberOfHabitats == 2){
           setHabitatType1(getRandomHabitat());
           setHabitatType2(getRandomHabitat());
