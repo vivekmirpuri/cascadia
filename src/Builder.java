@@ -89,6 +89,7 @@ public class Builder {
         }
     }
 
+
     public void changing(char charToChange){
         this.charToChange = charToChange;
     }
@@ -167,8 +168,8 @@ public class Builder {
     }
 
 
+    public void setEnvironment(Environment habitat) {
 
-
-
+    }
 }
 

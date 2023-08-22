@@ -6,8 +6,7 @@ public class Cascadia {
     public final static int COLS = 180;
     private final int numberPlayers = 2;
     private List<Player> players;
-    private List<HabitatTile> availableHabitatTiles;
-    private List<WildlifeToken> availableWildlifeTokens;
+    private List<Environment> availableEnvironments;
 
 
     public static void main(String[] a) {
@@ -18,8 +17,7 @@ public class Cascadia {
 
     public Cascadia() {
         this.players = new ArrayList<>();
-        this.availableHabitatTiles = new ArrayList<>();
-        this.availableWildlifeTokens = new ArrayList<>();
+        this.availableEnvironments = new ArrayList<>();
 
     }
     public void startGame() {
@@ -52,6 +50,9 @@ public class Cascadia {
             System.out.println("This is " + players.get(x).getName() + "'s board");
             players.get(x).getPlayerBoard();
         }
+        setTiles();
+
+
 
 
     }
@@ -60,6 +61,13 @@ public class Cascadia {
         for (int i = 0; i < players.size(); i++) {
             System.out.printf("%d. %s", i+1, players.get(i).getName());
             System.out.println();
+        }
+    }
+
+
+    public void setTiles(){
+        for (int i=0; i<43; i++){
+            availableEnvironments.add(new Environment());
         }
     }
 
