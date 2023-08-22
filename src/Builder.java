@@ -89,6 +89,18 @@ public class Builder {
         }
     }
 
+    public void fillTile(Environment environment) {
+        for (int i = 0; i < rows;i++){
+            for (int j = 0; j < columns; j++) {
+                playerList.get(getIndex()).changeCharsBoard(getI(),getJ(),environment.environmentTile[i][j]);
+                increaseJ();
+            }
+        }
+    }
+
+
+
+
 
     public void changing(char charToChange){
         this.charToChange = charToChange;
