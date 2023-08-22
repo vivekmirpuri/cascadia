@@ -53,8 +53,6 @@ public class Cascadia {
         setTiles();
 
 
-
-
     }
     public void getOrder(){
         System.out.println("The order of play will be the following");
@@ -69,9 +67,10 @@ public class Cascadia {
         for (int i=0; i<43; i++){
             availableHabitatTiles.add(new HabitatTile());
         }
+
     }
 
-
-
-
+    public List<Player> getPlayers() {
+        return players;
+    }
 }
