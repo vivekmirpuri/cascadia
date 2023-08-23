@@ -61,8 +61,12 @@ public class Cascadia {
             players.get(x).getPlayerBoard();
         }
         setTiles();
+
         setTokens();
+
+
         setEnvironmentsToDisplay();
+
         printEnvironments();
 
 
@@ -110,11 +114,9 @@ public class Cascadia {
     }
 
     public void sumNext() {
-
         int temp = getNext();
         temp += 1;
         setNext(temp);
-
     }
 
     public int getNext() {
@@ -130,17 +132,17 @@ public class Cascadia {
         for (int i = 0; i<4;i++){
             this.environmentsToDisplay.add(new Environment(getOneTile(),getOneToken()));
             this.tokensToDisplay.add(environmentsToDisplay.get(i).getTokenToAdd());
+            System.out.println(tokensToDisplay.get(i).getCharToDisplay());
             sumNext();
             increaseToken();
         }
     }
     public void printEnvironments(){
         for (int i = 0; i<4;i++){
-            System.out.println(Arrays.deepToString(this.environmentsToDisplay.get(i).getEnvironmentTile()));
+            System.out.println( this.environmentsToDisplay.get(i).getTileToAdd().getCharToDisplay());
         }
     }
     public boolean cull(){
-
         return this.tokensToDisplay.stream().distinct().count()==1;
     }
     public boolean optionToCull(){

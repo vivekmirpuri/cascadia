@@ -9,6 +9,7 @@ public class WildlifeToken {
     }
     public WildlifeToken(){
         setTokenToDisplay(getRandomWildlifeToken());
+        getFirstChar();
     }
 
     public void setTokenToDisplay(WildlifeType tokenToDisplay) {
@@ -39,8 +40,10 @@ public class WildlifeToken {
 
         }else if (this.tokenToDisplay == WildlifeType.SALMON) {
             setCharToDisplay('S');
-        }else{ //BEAR
+        } else if (this.tokenToDisplay == WildlifeType.BEAR) {
             setCharToDisplay('B');
+        } else {
+            setCharToDisplay('?');
         }
         return this.charToDisplay;
 

@@ -4,29 +4,33 @@ import java.util.List;
 
 public class Environment {
 
-    int i = 0;
-    int j = 0;
-    private final int  columns =18;
+    private final int  columns = 16;
     private final int rows = 6;
     char[][] environmentTile = new char[rows][columns];
 
     public HabitatTile tileToAdd;
     public WildlifeToken tokenToAdd;
 
-/*
-    private List<Player> playerList;
-*/
+    public void printEnvironment() {
+        for (char[] row : environmentTile) {
+            for (char c : row) {
+                System.out.print(c);
+            }
+            System.out.println();
+        }
+    }
 
     public Environment(HabitatTile tileToAdd, WildlifeToken tokenToAdd){
         this.tileToAdd = tileToAdd;
         this.tokenToAdd = tokenToAdd;
         fillTile();
+
     }
 
     public void fillTile(){
         for (int n = 0; n < rows; n++) {
             if (n==0||n == 5){
-                addLine(3, 5,n);
+                addLine(3, 10,n);
             }
             else if (n==1||n == 4) {
                 addLine(1, 14, n);
@@ -39,69 +43,35 @@ public class Environment {
 
     public void addLine(int margin, int stars, int line){
         for (int i =0; i<columns; i++){
-
-            for (int j =0; j<margin; i++){
-                this.environmentTile[line][getI()] = ' ';
-                increaseI();
+            for (int j =0; j<margin; j++){
+                this.environmentTile[line][i] = ' ';
+                i++;
             }
-            for (int j =0; j<(stars-margin); i++){
+            for (int j =0; j<stars; j++){
                 if (line == 3){
-                    if (getI() == 7){
-                        this.environmentTile[line][getI()] = Array.getChar(this.tileToAdd, 0);
-                        increaseI();
+                    if (i == stars/2){
+                        this.environmentTile[line][i] = this.tileToAdd.getCharToDisplay();
                     }else {
-                        this.environmentTile[line][getI()] = '*';
-                        increaseI();
+                        this.environmentTile[line][i] = '*';
                     }
-
                 }else {
-                    this.environmentTile[line][getI()] = '*';
-                    increaseI();
+                    this.environmentTile[line][i] = '*';
                 }
-
+                i++;
             }
-            for (int j =0; j<margin; i++){
-                this.environmentTile[line][getI()] = ' ';
-                increaseI();
+            for (int j =0; j<margin; j++){
+                this.environmentTile[line][i] = ' ';
+                i++;
             }
-            increaseJ();
         }
     }
 
     public WildlifeToken getTokenToAdd() {
-        return tokenToAdd;
+        return this.tokenToAdd;
     }
     public HabitatTile getTileToAdd(){
-        return  tileToAdd;
+        return this.tileToAdd;
     }
 
-    private void setI(int i) {
-        this.i = i;
-    }
 
-    private void increaseJ(){
-        int temp = getJ();
-        temp += 1;
-        setJ(temp);
-    }
-    private void increaseI(){
-        int temp = getI();
-        temp += 1;
-        setI(temp);
-    }
-    public int getI() {
-        return i%18;
-    }
-
-    public void setJ(int j) {
-        this.j = j;
-    }
-
-    public int getJ() {
-        return j%6;
-    }
-
-    public char[][] getEnvironmentTile() {
-        return environmentTile;
-    }
 }

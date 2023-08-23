@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class HabitatTile {
     HabitatType habitatType1;
+
     HabitatType habitatType2;
 
     WildlifeType wildlifeType1;
@@ -13,9 +14,12 @@ public class HabitatTile {
 
     int numberOfHabitats = 1 + (int)(Math.random() * ((2 - 1) + 1));
     int numberOfWildlife = 1 + (int)(Math.random() * ((3 - 1) + 1));
+    private char charToDisplay;
+
 
 
     HabitatTile(){
+        getFirstCharForHabitat();
       if (numberOfHabitats == 2){
           setHabitatType1(getRandomHabitat());
           setHabitatType2(getRandomHabitat());
@@ -32,7 +36,6 @@ public class HabitatTile {
       }else{
           setWildlifeType1(getRandomWildlife());
       }
-
     }
 
     public HabitatType getHabitatType1() {
@@ -82,8 +85,29 @@ public class HabitatTile {
     public WildlifeType getRandomWildlife() {
         return WildlifeType.values()[new Random().nextInt(HabitatType.values().length)];
     }
+    public void getFirstCharForHabitat(){
+        if (this.habitatType1 == HabitatType.FOREST){
+            setCharToDisplay('F');
+        } else if (this.habitatType1 == HabitatType.GRASSLAND) {
+            setCharToDisplay('G');
+        } else if (this.habitatType1 == HabitatType.MOUNTAIN) {
+            setCharToDisplay('M');
+        } else if (this.habitatType1 == HabitatType.WETLAND) {
+            setCharToDisplay('W');
+        } else if (this.habitatType1 == HabitatType.PRAIRIE) {
+            setCharToDisplay('P');
+        } else {
+            setCharToDisplay('?');
+        }
 
+    }
+    public void setCharToDisplay(char charToDisplay) {
+        this.charToDisplay = charToDisplay;
+    }
 
+    public char getCharToDisplay() {
+        return charToDisplay;
+    }
 }
 
 
