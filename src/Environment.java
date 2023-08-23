@@ -10,8 +10,8 @@ public class Environment {
     private final int rows = 6;
     char[][] environmentTile = new char[rows][columns];
 
-    HabitatTile tileToAdd;
-    WildlifeToken tokenToAdd;
+    public HabitatTile tileToAdd;
+    public WildlifeToken tokenToAdd;
 
 /*
     private List<Player> playerList;
@@ -68,6 +68,13 @@ public class Environment {
         }
     }
 
+    public WildlifeToken getTokenToAdd() {
+        return tokenToAdd;
+    }
+    public HabitatTile getTileToAdd(){
+        return  tileToAdd;
+    }
+
     private void setI(int i) {
         this.i = i;
     }
@@ -94,5 +101,7 @@ public class Environment {
         return j%6;
     }
 
-
+    public char[][] getEnvironmentTile() {
+        return environmentTile;
+    }
 }

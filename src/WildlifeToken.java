@@ -3,11 +3,12 @@ import java.util.Random;
 
 public class WildlifeToken {
     private WildlifeType tokenToDisplay;
+    private char charToDisplay;
     public WildlifeType getRandomWildlifeToken() {
         return WildlifeType.values()[new Random().nextInt(WildlifeType.values().length)];
     }
     public WildlifeToken(){
-        this.tokenToDisplay=getRandomWildlifeToken();
+        setTokenToDisplay(getRandomWildlifeToken());
     }
 
     public void setTokenToDisplay(WildlifeType tokenToDisplay) {
@@ -17,7 +18,31 @@ public class WildlifeToken {
     public WildlifeType getTokenToDisplay() {
         return tokenToDisplay;
     }
+
+    public char getCharToDisplay() {
+        return charToDisplay;
+    }
+
+    public void setCharToDisplay(char charToDisplay) {
+        this.charToDisplay = charToDisplay;
+    }
+
     public char getFirstChar(){
-        return Array.getChar(tokenToDisplay,1);
+        if (this.tokenToDisplay == WildlifeType.ELK){
+            setCharToDisplay('E');
+
+        } else if (this.tokenToDisplay == WildlifeType.FOX) {
+            setCharToDisplay('F');
+
+        }else if (this.tokenToDisplay == WildlifeType.HAWK) {
+            setCharToDisplay('H');
+
+        }else if (this.tokenToDisplay == WildlifeType.SALMON) {
+            setCharToDisplay('S');
+        }else{ //BEAR
+            setCharToDisplay('B');
+        }
+        return this.charToDisplay;
+
     }
 }

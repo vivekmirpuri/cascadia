@@ -1,3 +1,4 @@
+import java.sql.ClientInfoStatus;
 import java.util.*;
 
 public class Cascadia {
@@ -5,11 +6,14 @@ public class Cascadia {
     public final static int ROWS = 60;
     public final static int COLS = 180;
     private final int numberPlayers = 2;
+    private int next=0;
     private List<Player> players;
     private List<HabitatTile> availableHabitatTiles;
     private List<WildlifeToken> availableWildlifeTokens;
+    private List<Environment> environmentsToDisplay;
 
-
+    private List<WildlifeToken> tokensToDisplay;
+    private int tokenPointer = 0;
 
 
 
@@ -22,7 +26,9 @@ public class Cascadia {
     public Cascadia() {
         this.players = new ArrayList<>();
         this.availableHabitatTiles = new ArrayList<>();
-
+        this.availableWildlifeTokens = new ArrayList<>();
+        this.environmentsToDisplay = new LinkedList<>();
+        this.tokensToDisplay = new ArrayList<>();
     }
     public void startGame() {
 
@@ -55,6 +61,9 @@ public class Cascadia {
             players.get(x).getPlayerBoard();
         }
         setTiles();
+        setTokens();
+        setEnvironmentsToDisplay();
+        printEnvironments();
 
 
     }
@@ -73,11 +82,69 @@ public class Cascadia {
         }
 
     }
+
     public void setTokens(){
         for (int i=0; i<100; i++){
-            availableWildlifeTokens.add(new WildlifeToken());
-            System.out.println(availableWildlifeTokens.get(i).);
+            this.availableWildlifeTokens.add(new WildlifeToken());
         }
+    }
+    public HabitatTile getOneTile(){
+        return (availableHabitatTiles.get(getNext()));
+    }
+    public WildlifeToken getOneToken(){
+        return (availableWildlifeTokens.get(getTokenPointer()));
+    }
+    public void increaseToken() {
+        int temp = getTokenPointer();
+        temp += 1;
+        setTokenPointer(temp);
+
+    }
+    public int getTokenPointer() {
+
+        return tokenPointer;
+    }
+
+    public void setTokenPointer(int tokenPointer) {
+        this.tokenPointer = tokenPointer;
+    }
+
+    public void sumNext() {
+
+        int temp = getNext();
+        temp += 1;
+        setNext(temp);
+
+    }
+
+    public int getNext() {
+        return next %43;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
+    }
+
+
+    public void setEnvironmentsToDisplay(){
+        for (int i = 0; i<4;i++){
+            this.environmentsToDisplay.add(new Environment(getOneTile(),getOneToken()));
+            this.tokensToDisplay.add(environmentsToDisplay.get(i).getTokenToAdd());
+            sumNext();
+            increaseToken();
+        }
+    }
+    public void printEnvironments(){
+        for (int i = 0; i<4;i++){
+            System.out.println(Arrays.deepToString(this.environmentsToDisplay.get(i).getEnvironmentTile()));
+        }
+    }
+    public boolean cull(){
+
+        return this.tokensToDisplay.stream().distinct().count()==1;
+    }
+    public boolean optionToCull(){
+        return this.tokensToDisplay.stream().distinct().count()==2;
     }
 
     public List<Player> getPlayers() {
