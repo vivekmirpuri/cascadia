@@ -12,14 +12,13 @@ public class HabitatTile {
 
     WildlifeType wildlifeType3;
 
-    int numberOfHabitats = 1 + (int)(Math.random() * ((2 - 1) + 1));
-    int numberOfWildlife = 1 + (int)(Math.random() * ((3 - 1) + 1));
+    private final int numberOfHabitats;
+    private final int numberOfWildlife;
     private char charToDisplay;
 
-
-
     HabitatTile(){
-        getFirstCharForHabitat();
+        this.numberOfWildlife = 1 + (int)(Math.random() * ((3 - 1) + 1));
+        this.numberOfHabitats = 1 + (int)(Math.random() * ((2 - 1) + 1));
       if (numberOfHabitats == 2){
           setHabitatType1(getRandomHabitat());
           setHabitatType2(getRandomHabitat());
@@ -36,6 +35,8 @@ public class HabitatTile {
       }else{
           setWildlifeType1(getRandomWildlife());
       }
+        getFirstCharForHabitat();
+
     }
 
     public HabitatType getHabitatType1() {
@@ -68,6 +69,9 @@ public class HabitatTile {
     public HabitatType getRandomHabitat() {
        return HabitatType.values()[new Random().nextInt(HabitatType.values().length)];
     }
+    public WildlifeType getRandomWildlife() {
+        return WildlifeType.values()[new Random().nextInt(WildlifeType.values().length)];
+    }
 
 
     public void setWildlifeType1(WildlifeType wildlifeType1) {
@@ -82,9 +86,7 @@ public class HabitatTile {
         this.wildlifeType3 = wildlifeType3;
     }
 
-    public WildlifeType getRandomWildlife() {
-        return WildlifeType.values()[new Random().nextInt(HabitatType.values().length)];
-    }
+
     public void getFirstCharForHabitat(){
         if (this.habitatType1 == HabitatType.FOREST){
             setCharToDisplay('F');
@@ -101,12 +103,12 @@ public class HabitatTile {
         }
 
     }
-    public void setCharToDisplay(char charToDisplay) {
-        this.charToDisplay = charToDisplay;
+    public void setCharToDisplay(char character) {
+        this.charToDisplay = character;
     }
 
     public char getCharToDisplay() {
-        return charToDisplay;
+        return this.charToDisplay;
     }
 }
 

@@ -20,11 +20,11 @@ public class Environment {
         }
     }
 
+
     public Environment(HabitatTile tileToAdd, WildlifeToken tokenToAdd){
         this.tileToAdd = tileToAdd;
         this.tokenToAdd = tokenToAdd;
         fillTile();
-
     }
 
     public void fillTile(){
@@ -40,6 +40,9 @@ public class Environment {
         }
     }
 
+    public char[][] getEnvironmentTile() {
+        return environmentTile;
+    }
 
     public void addLine(int margin, int stars, int line){
         for (int i =0; i<columns; i++){
@@ -49,8 +52,11 @@ public class Environment {
             }
             for (int j =0; j<stars; j++){
                 if (line == 3){
-                    if (i == stars/2){
+                    if (i == 6 || i == 8){
+                        this.environmentTile[line][i] = ' ';
+                    } else if (i == 7){
                         this.environmentTile[line][i] = this.tileToAdd.getCharToDisplay();
+
                     }else {
                         this.environmentTile[line][i] = '*';
                     }

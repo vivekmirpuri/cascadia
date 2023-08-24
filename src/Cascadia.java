@@ -1,3 +1,4 @@
+import java.io.Reader;
 import java.sql.ClientInfoStatus;
 import java.util.*;
 
@@ -55,7 +56,6 @@ public class Cascadia {
             tileMaker.setIndex(x);
             for (int i = 0; i < (95); i++) {   //this is to print the tiles empty, as many times as the board
                 tileMaker.tile();
-                System.out.println(tileMaker.giveCoordinates());
             }
             System.out.println("This is " + players.get(x).getName() + "'s board");
             players.get(x).getPlayerBoard();
@@ -105,7 +105,6 @@ public class Cascadia {
 
     }
     public int getTokenPointer() {
-
         return tokenPointer;
     }
 
@@ -120,7 +119,7 @@ public class Cascadia {
     }
 
     public int getNext() {
-        return next %43;
+        return this.next;
     }
 
     public void setNext(int next) {
@@ -132,14 +131,22 @@ public class Cascadia {
         for (int i = 0; i<4;i++){
             this.environmentsToDisplay.add(new Environment(getOneTile(),getOneToken()));
             this.tokensToDisplay.add(environmentsToDisplay.get(i).getTokenToAdd());
-            System.out.println(tokensToDisplay.get(i).getCharToDisplay());
             sumNext();
             increaseToken();
+        }
+        if (cull()){
+            System.out.println("All WildlifeTokens are the same, cull occurred");
+        } else if (optionToCull()) {
+            System.out.println("You have the option to cull, if you would like to cull press 1" );
+            Scanner scanner = new Scanner(System.in);
+
+
         }
     }
     public void printEnvironments(){
         for (int i = 0; i<4;i++){
-            System.out.println( this.environmentsToDisplay.get(i).getTileToAdd().getCharToDisplay());
+           this.environmentsToDisplay.get(i).printEnvironment();
+            System.out.println();
         }
     }
     public boolean cull(){
