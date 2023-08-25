@@ -7,7 +7,7 @@ public class Builder {
     List<Player> playerList;
     private int pointerToVerticalChar = 0;
     private int pointerToHorizontalChar = 0;
-    private char charToChange = '*';
+    private final char charToChange = '*';
     boolean[] toPlaceTiles = new boolean[95]; //number of possible hexagons per match
     int indexOfPlayer;
     private final int  columns =18;
