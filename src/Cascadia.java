@@ -135,10 +135,27 @@ public class Cascadia {
             increaseToken();
         }
         if (cull()){
-            System.out.println("All WildlifeTokens are the same, cull occurred");
+            System.out.println("Automatic cull dues to all WildlifeTokens being the same");
+            for (int i = 0; i<environmentsToDisplay.size(); i++){
+                this.environmentsToDisplay.get(i).setTokenToAdd(getOneToken());
+                this.tokensToDisplay.get(i).setTypeToDisplay(this.environmentsToDisplay.get(i).getTokenToAdd().getTypeToDisplay());
+            }
         } else if (optionToCull()) {
-            System.out.println("You have the option to cull, if you would like to cull press 1" );
+            System.out.println("You have the option to cull, if you would like to cull press 1, if not press 2");
             Scanner scanner = new Scanner(System.in);
+            while(true){
+                int temp= scanner.nextInt();
+                if (temp == 1){
+                    for (int i = 0; i<environmentsToDisplay.size(); i++){
+                        this.environmentsToDisplay.get(i).setTokenToAdd(getOneToken());
+                        this.tokensToDisplay.get(i).setTypeToDisplay(this.environmentsToDisplay.get(i).getTokenToAdd().getTypeToDisplay());
+                    }
+                    break;
+                }else if (temp == 2){
+                    System.out.println("You have chosen to not cull, proceed");
+                    break;
+                }
+            }
 
 
         }

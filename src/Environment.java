@@ -40,6 +40,10 @@ public class Environment {
         }
     }
 
+    public void setTokenToAdd(WildlifeToken tokenToAdd) {
+        this.tokenToAdd = tokenToAdd;
+    }
+
     public char[][] getEnvironmentTile() {
         return environmentTile;
     }

@@ -2,22 +2,25 @@ import java.lang.reflect.Array;
 import java.util.Random;
 
 public class WildlifeToken {
-    private WildlifeType tokenToDisplay;
+    private WildlifeType typeToDisplay;
+
     private char charToDisplay;
     public WildlifeType getRandomWildlifeToken() {
         return WildlifeType.values()[new Random().nextInt(WildlifeType.values().length)];
     }
     public WildlifeToken(){
-        setTokenToDisplay(getRandomWildlifeToken());
+        setTypeToDisplay(getRandomWildlifeToken());
         getFirstChar();
     }
 
-    public void setTokenToDisplay(WildlifeType tokenToDisplay) {
-        this.tokenToDisplay = tokenToDisplay;
+
+    public void setTypeToDisplay(WildlifeType typeToDisplay) {
+        this.typeToDisplay = typeToDisplay;
     }
 
-    public WildlifeType getTokenToDisplay() {
-        return tokenToDisplay;
+
+    public WildlifeType getTypeToDisplay() {
+        return typeToDisplay;
     }
 
     public char getCharToDisplay() {
@@ -29,18 +32,18 @@ public class WildlifeToken {
     }
 
     public char getFirstChar(){
-        if (this.tokenToDisplay == WildlifeType.ELK){
+        if (this.typeToDisplay == WildlifeType.ELK){
             setCharToDisplay('E');
 
-        } else if (this.tokenToDisplay == WildlifeType.FOX) {
+        } else if (this.typeToDisplay == WildlifeType.FOX) {
             setCharToDisplay('F');
 
-        }else if (this.tokenToDisplay == WildlifeType.HAWK) {
+        }else if (this.typeToDisplay == WildlifeType.HAWK) {
             setCharToDisplay('H');
 
-        }else if (this.tokenToDisplay == WildlifeType.SALMON) {
+        }else if (this.typeToDisplay == WildlifeType.SALMON) {
             setCharToDisplay('S');
-        } else if (this.tokenToDisplay == WildlifeType.BEAR) {
+        } else if (this.typeToDisplay == WildlifeType.BEAR) {
             setCharToDisplay('B');
         } else {
             setCharToDisplay('?');
