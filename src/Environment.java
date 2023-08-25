@@ -1,7 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.LinkedList;
-import java.util.List;
-
 public class Environment {
 
     private final int  columns = 16;

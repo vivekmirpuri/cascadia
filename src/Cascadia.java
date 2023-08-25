@@ -156,12 +156,10 @@ public class Cascadia {
                     break;
                 }
             }
-
-
         }
     }
     public void printEnvironments(){
-        for (int i = 0; i<4;i++){
+        for (int i = 0; i< environmentsToDisplay.size();i++){
            this.environmentsToDisplay.get(i).printEnvironment();
             System.out.println();
         }

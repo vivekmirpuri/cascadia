@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class HabitatTile {
     HabitatType habitatType1;
-
     HabitatType habitatType2;
+    String color1;
+    String color2;
+    
 
     WildlifeType wildlifeType1;
     WildlifeType wildlifeType2;
-
     WildlifeType wildlifeType3;
 
     private final int numberOfHabitats;
@@ -17,6 +18,7 @@ public class HabitatTile {
     private char charToDisplay;
 
     HabitatTile(){
+
         this.numberOfWildlife = 1 + (int)(Math.random() * ((3 - 1) + 1));
         this.numberOfHabitats = 1 + (int)(Math.random() * ((2 - 1) + 1));
       if (numberOfHabitats == 2){
@@ -72,6 +74,7 @@ public class HabitatTile {
     public WildlifeType getRandomWildlife() {
         return WildlifeType.values()[new Random().nextInt(WildlifeType.values().length)];
     }
+    
 
 
     public void setWildlifeType1(WildlifeType wildlifeType1) {
@@ -85,26 +88,65 @@ public class HabitatTile {
     public void setWildlifeType3(WildlifeType wildlifeType3) {
         this.wildlifeType3 = wildlifeType3;
     }
+    
 
 
+
+    public char getAvailableWildlifeType(){
+    	if(this.numberOfWildlife==1) {
+    		if (this.wildlifeType1 == WildlifeType.ELK){
+                setCharsToDisplay('E');
+
+            } else if (this.wildlifeType1 == WildlifeType.FOX) {
+                setCharsToDisplay('F');
+
+            }else if (this.wildlifeType1 == WildlifeType.HAWK) {
+                setCharsToDisplay('H');
+
+            }else if (this.wildlifeType1 == WildlifeType.SALMON) {
+                setCharsToDisplay('S');
+            } else if (this.wildlifeType1 == WildlifeType.BEAR) {
+                setCharsToDisplay('B');
+            } else {
+                setCharsToDisplay('?');
+            }
+    
+    	}else if (this.numberOfWildlife ==2) {
+    		
+    	}else {
+    		
+    	}
+        return this.charToDisplay;
+
+    }
     public void getFirstCharForHabitat(){
         if (this.habitatType1 == HabitatType.FOREST){
-            setCharToDisplay('F');
+        	setColorsToDisplay('F');
         } else if (this.habitatType1 == HabitatType.GRASSLAND) {
-            setCharToDisplay('G');
+        	setColorsToDisplay('G');
         } else if (this.habitatType1 == HabitatType.MOUNTAIN) {
-            setCharToDisplay('M');
+        	setColorsToDisplay('M');
         } else if (this.habitatType1 == HabitatType.WETLAND) {
-            setCharToDisplay('W');
+        	setColorsToDisplay('W');
         } else if (this.habitatType1 == HabitatType.PRAIRIE) {
-            setCharToDisplay('P');
+        	setColorsToDisplay('P');
         } else {
-            setCharToDisplay('?');
+        	setColorsToDisplay('?');
         }
 
     }
-    public void setCharToDisplay(char character) {
+    public void setCharsToDisplay(char character) {
         this.charToDisplay = character;
+    }
+    public void setColorsToDisplay(char letter) {
+    	
+    	StartHabitat colors = new StartHabitat();
+    	switch(letter) {
+    	case 'F':
+    		
+    		
+    	}
+    	
     }
 
     public char getCharToDisplay() {

@@ -27,3 +27,15 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/.gitignore
+/Builder.class
+/Cascadia.class
+/Environment.class
+/HabitatTile.class
+/HabitatType.class
+/Main.class
+/Player.class
+/StartHabitat.class
+/WildlifeToken.class
+/WildlifeType.class
+/src.iml

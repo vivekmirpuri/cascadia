@@ -49,6 +49,5 @@ public class WildlifeToken {
             setCharToDisplay('?');
         }
         return this.charToDisplay;
-
     }
 }
